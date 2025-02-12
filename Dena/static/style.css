@@ -3,12 +3,3 @@ body {
     background-color: white;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.spin-animation {
-    animation: var(--aniamtion-spin);
-}
