@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- DaisyUI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS (Jika ada) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Home - Denna Health{% endblock %}</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar shadow-sm sticky top-0 left-0 right-0 z-50 bg-base-100">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li><a href="{{ url_for('berita') }}">Berita</a></li>
+            <li>
+                <details>
+                  <summary>Cek Gejala Kesehatan</summary>
+                  <ul class="p-2">
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#sesak">Sesak Nafas</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#maag">Maag</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#flu">Flu</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#diare">Diare</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#bibir">Bibir Pecah-Pecah </a></li>
+                  </ul>
+                </details>
+              </li>
+              <li><a href="{{ url_for('home') }}#about">Tentang Kami</a></li>
+            <li><a href="{{ url_for('home') }}#kontak">Hubungi Kami</a></li>    
+            </ul>
+          </div>
+          <a class="text-xl text-white">Denna Health</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a href="{{ url_for('berita') }}">Berita</a></li>
+            <li>
+                <details>
+                  <summary>Cek Gejala Kesehatan</summary>
+                  <ul class="p-2">
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#sesak">Sesak Nafas</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#maag">Maag</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#flu">Flu</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#diare">Diare</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#bibir">Bibir Pecah-Pecah </a></li>
+                  </ul>
+                </details>
+              </li>
+              <li><a href="{{ url_for('home') }}#about">Tentang Kami</a></li>
+            <li><a href="{{ url_for('home') }}#kontak">Hubungi Kami</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}">
+                <img src="/static/img/logo.png"
+                     alt="Link" class="h-9 w-9 rounded-full object-cover md:h-9 md:w-9 min-h-[36px] min-w-[36px] mr-3">
+            </a>
+        </div>
+      </div>
+
+<!-- Hero Section -->
+<div class="hero min-h-screen" style="background-image: url(../static/img/latar.jpg); background-size: cover; background-position: center;">
+    <div class="hero-overlay bg-black opacity-65"></div>
+    <div class="hero-content flex flex-col lg:flex-row items-center justify-between gap-8">
+        <!-- Gambar -->
+        <img src="../static/img/logo.png" class="" />
+
+        <!-- Teks -->
+        <div class="text-center lg:text-left">
+            <h1 class="text-5xl font-bold text-white">Denna Health</h1>
+            <p class="py-6 text-white">
+                platform yang menyediakan informasi medis yang dapat membantu Anda lebih memahami gejala, penyakit, dan langkah-langkah awal yang bisa diambil terkait kesehatan Anda.
+                Kami bertujuan untuk memberikan pengetahuan yang berguna bagi masyarakat mengenai berbagai kondisi kesehatan, serta memberikan wawasan tentang gejala yang dapat mengindikasikan adanya masalah kesehatan.
+            </p>
+            <button class="btn btn-primary text-white ">Get Started</button>
+        </div>
+    </div>
+</div>
+
+<div class="ml-10  mr-10">
+    <div class="container mx-auto px-4 py-8">
+        <a class="block text-center">
+            <h1 class="font-bold text-black text-xl">INFORMASI KESEHATAN</h1>
+            <p class="text-gray-500 text-sm italic mb-10">Untuk mengetahui lebih lanjut klik teks dibawah ini</p>
+            <div class="flex justify-center">
+                <a href="/informasi_kesehatan">
+                    <button class="btn btn-primary text-white">Info Lebih Lanjut</button>
+                </a>
+            </div>
+        </a>
+    </div>
+</div>
+ 
+
+<div class="ml-10 mt-10 mr-10 mb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!--1-->
+        <div class="card w-full bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+            <figure>
+                <img src="https://img.freepik.com/free-photo/sick-woman-mask-having-difficulty-breathing-coronavirus-pandemic_53876-95273.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="Full set: Paket Sound System, Moving Head Beam, Lampu Par Led & Smoke Machine" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title text-black">Sesak Nafas (Dispenia)</h2>
+                <p>Sesak nafas adalah kondisi medis yang menyebabkan perasaan kesulitan atau ketidaknyamanan dalam bernafas.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                    <a href="{{ url_for('informasi_kesehatan') }}#sesak"><button class="btn btn-primary text-white">Info Lebih Lanjut</button></a>
+                </div>
+            </div>
+        </div>
+
+        <!--2-->
+        <div class="card w-full bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+            <figure>
+                <img src="https://img.freepik.com/free-photo/woman-standing-with-stomach-ache-presses-her-hand-her-stomach_1150-25976.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="Paket Lighting: Moving Head Beam, Lampu Par Led & Smoke Machine" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title text-black">Maag (Dispepsia)</h2>
+                <p>Maag adalah istilah yang sering digunakan untuk menggambarkan rasa sakit atau ketidaknyamanan di area perut bagian atas yang disebabkan oleh masalah pencernaan.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                    <a href="{{ url_for('informasi_kesehatan') }}#maag"><button class="btn btn-primary text-white">Info Lebih Lanjut</button></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3-->
+        <div class="card w-full bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+            <figure>
+                <img src="https://img.freepik.com/free-photo/young-asian-man-sitting-couch-home-blowing-nose-with-tissue_1098-20142.jpg?t=st=1739309096~exp=1739312696~hmac=5fb3fce63df88152b03efdbbd5d4d483272457428599bb9c4655375c00d99952&w=740" alt="Paket Par Led: Lampu Par Led & Smoke Machine" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title text-black">Flu (Influenza)</h2>
+                <p>Sakit tenggorokan, pilek, demam, atau sakit kepala,</p>
+                <div class="card-actions justify-between items-center mt-4">
+                    <a href="{{ url_for('informasi_kesehatan') }}#flu"><button class="btn btn-primary text-white">Info Lebih Lanjut</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tentang Kami -->
+<section class="bg-gray-100 py-16" id="about">
+    <div class="max-w-7xl mx-auto gap-8 items-center grid grid-cols-1 lg:grid-cols-2">
+      <!-- Teks di Kiri -->
+      <div class="text-center lg:text-left">
+        <h3 class="text-3xl font-semibold text-gray-800">Tentang Kami</h3>
+        <p class="mt-4 text-lg text-gray-600">
+            Dena Health adalah sumber informasi medis yang bertanggung jawab dalam menyediakan pengetahuan yang tepat dan terpercaya kepada masyarakat. Kami berfokus pada edukasi kesehatan dengan pendekatan yang sederhana dan mudah dipahami, yang dapat membantu orang-orang memahami gejala penyakit, faktor risiko, serta tindakan pencegahan yang bisa dilakukan untuk menjaga kesehatan.
+        </p>
+        <div class="text-center lg:text-left mt-10">
+        </div>
+      </div>
+  
+      <!-- Gambar di Kanan -->
+      <div class="flex justify-center lg:justify-end mt-8 lg:mt-0">
+        <img src="https://img.freepik.com/premium-vector/doctor-hands-holding-clipboard-with-checklist-medical-report-flat-design_115464-616.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="Gambar Tentang Kami" class="rounded-lg shadow-xl">
+      </div>
+    </div>
+  </section>
+  
+
+<!--kontak-->
+<section class="py-20 bg-white mt-20" id="kontak">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Informasi Kontak</h3>
+                <div class="text-gray-700 mb-6">
+                    <p class="mb-2"><strong>Alamat:</strong> Kp cibaragalan, Desa Ciwangi, Kabupaten Purwakarta, Jawa Barat</p>
+                    <p class="mb-2"><strong>Email:</strong> dennaagustin03@gmail.com</p>
+                    <p class="mb-2"><strong>Telepon:</strong> +62 859 3865 0364</p>
+                </div>
+                <a href="https://wa.me/6285938650364" target="_blank">
+                    <div>
+                        <button class="btn btn-primary">Hubungi Kami Melalui WhatsApp</button>
+                    </div>
+                </a>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Formulir Kontak</h3>
+                <form id="contact-form">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700">Nama Anda</label>
+                        <input type="text" id="name" class="input input-bordered w-full" placeholder="Masukkan nama Anda" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="riwayat" class="block text-gray-700">Riwayat Penyakit</label>
+                        <textarea id="riwayat" class="textarea textarea-bordered w-full" placeholder="Tuliskan riwayat penyakit Anda" required></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700">Pesan Anda</label>
+                        <textarea id="message" class="textarea textarea-bordered w-full" placeholder="Tuliskan pesan Anda" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();  // Mencegah pengiriman formulir secara default
+
+        // Ambil data dari input pengguna
+        const name = document.getElementById('name').value;
+        const riwayat = document.getElementById('riwayat').value;  // Variabel untuk riwayat penyakit
+        const message = document.getElementById('message').value;
+
+        // Membuat URL WhatsApp dengan pesan yang dimasukkan
+        const whatsappLink = `https://wa.me/6285938650364?text=Halo%20saya%20${encodeURIComponent(name)}.%0ARiwayat%20Penyakit%20saya%3A%20${encodeURIComponent(riwayat)}.%0APesan%20saya%3A%20${encodeURIComponent(message)}.`;
+        
+        // Buka WhatsApp dengan link yang dibentuk
+        window.open(whatsappLink, '_blank');
+    });
+</script>
+
+
+
+<!-- Link ke file JavaScript -->
+<script src="../static/script.js"></script>
+
+<footer class="footer bg-base-300 text-base-content p-10 mt-10 mb-0 relative">
+    <nav>
+      <h6 class="footer-title">Feature</h6>
+      <a href="{{ url_for('informasi_kesehatan')}}" class="link link-hover">Memberikan Informasi Kesehatan</a>
+      <a href="{{ url_for('berita')}}" class="link link-hover">Memberikan Berita Penyakit</a>
+    </nav>
+    <nav>
+        <h6 class="text-white">Copyright @ 2025 Denna Health</h6></nav>
+    <nav>
+      <h6 class="footer-title">Social</h6>
+      <div class="grid grid-flow-col gap-4">
+        <img src="https://img.freepik.com/premium-vector/whatsapp-icon-design_23-2147918673.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_authors_boost" alt="Logo ASEP Industries" width="50" height="50" class="h-10 w-10 rounded-full mr-3" />
+    <p class="font-bold">
+      </div>
+    </nav>
+  </footer>
+
+</body>
+</html>

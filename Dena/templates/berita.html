@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- DaisyUI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS (Jika ada) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Berita - Denna Health{% endblock %}</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar shadow-sm sticky top-0 left-0 right-0 z-50 bg-base-100">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li><a href="{{ url_for('berita') }}">Berita</a></li>
+            <li>
+                <details>
+                  <summary>Cek Gejala Kesehatan</summary>
+                  <ul class="p-2">
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#sesak">Sesak Nafas</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#maag">Maag</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#flu">Flu</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#diare">Diare</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#bibir">Bibir Pecah-Pecah </a></li>
+                  </ul>
+                </details>
+              </li>
+              <li><a href="{{ url_for('home') }}#about">Tentang Kami</a></li>
+            <li><a href="{{ url_for('home') }}#kontak">Hubungi Kami</a></li>    
+            </ul>
+          </div>
+          <a class="text-xl text-white">Denna Health</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a href="{{ url_for('berita') }}">Berita</a></li>
+            <li>
+                <details>
+                  <summary>Cek Gejala Kesehatan</summary>
+                  <ul class="p-2">
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#sesak">Sesak Nafas</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#maag">Maag</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#flu">Flu</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#diare">Diare</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#bibir">Bibir Pecah-Pecah </a></li>
+                  </ul>
+                </details>
+              </li>
+              <li><a href="{{ url_for('home') }}#about">Tentang Kami</a></li>
+            <li><a href="{{ url_for('home') }}#kontak">Hubungi Kami</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}">
+                <img src="/static/img/logo.png"
+                     alt="Link" class="h-9 w-9 rounded-full object-cover md:h-9 md:w-9 min-h-[36px] min-w-[36px] mr-3">
+            </a>
+        </div>
+      </div>
+
+   <div class="bg-gray-100 p-4">
+
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-6 text-black">Berita Penyakit Terbaru</h1>
+        
+        <!-- Daftar Berita -->
+        <div class="space-y-4">
+
+            <!-- Berita 1 -->
+            <div class="card w-full bg-white shadow-lg hover:shadow-xl">
+                <div class="card-body">
+                    <img src="https://img.freepik.com/free-photo/close-up-drive-coronavirus-test_23-2148747811.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_authors_boost" alt="Covid-19" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="card-title text-xl font-semibold text-black">Penyakit Covid-19: Update Terbaru</h2>
+                    <p class="text-gray-600 text-black">Pandemi Covid-19 masih berlangsung, simak informasi terbaru tentang perkembangan virus ini dan cara pencegahannya.</p>
+                    <a href="https://www.detik.com/tag/covid_19" target="_blank" class="text-blue-500 hover:text-blue-700">Baca Selengkapnya</a>
+                </div>
+            </div>
+
+            <!-- Berita 2 -->
+            <div class="card w-full bg-white shadow-lg hover:shadow-xl">
+                <div class="card-body">
+                    <img src="https://img.freepik.com/free-photo/male-student-practicing-medicine_23-2149040259.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_authors_boost" alt="Penyakit Jantung" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="card-title text-xl font-semibold text-black">Mengenal Penyakit Jantung: Gejala dan Pencegahan</h2>
+                    <p class="text-gray-600 text-black">Penyakit jantung adalah salah satu penyebab kematian tertinggi. Ketahui cara mencegah dan mengidentifikasi gejalanya sejak dini.</p>
+                    <a href="https://www.detik.com/tag/penyakit-jantung" target="_blank" class="text-blue-500 hover:text-blue-700">Baca Selengkapnya</a>
+                </div>
+            </div>
+
+            <!-- Berita 3 -->
+            <div class="card w-full bg-white shadow-lg hover:shadow-xl">
+                <div class="card-body">
+                    <img src="https://img.freepik.com/free-photo/side-view-diabetic-woman-checking-her-glucose-level_23-2150756398.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_authors_boost" alt="Diabetes" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="card-title text-xl font-semibold text-black">Diabetes: Penyebab, Gejala, dan Pengobatan</h2>
+                    <p class="text-gray-600 text-black">Diabetes adalah penyakit yang memengaruhi metabolisme tubuh. Pelajari penyebab, gejala, dan cara pengobatannya.</p>
+                    <a href="https://www.detik.com/tag/gejala-diabetes" target="_blank" class="text-blue-500 hover:text-blue-700">Baca Selengkapnya</a>
+                </div>
+            </div>
+
+            <!-- Berita 4 -->
+            <div class="card w-full bg-white shadow-lg hover:shadow-xl">
+                <div class="card-body">
+                    <img src="https://img.freepik.com/free-photo/coughing-man-mall-wearing-medical-mask_23-2148450319.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_authors_boost" alt="Flu Musiman" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="card-title text-xl font-semibold text-black">Flu Musiman: Kenali Penyebab dan Gejalanya</h2>
+                    <p class="text-gray-600 text-black">Flu musiman sering kali terjadi pada musim dingin. Cari tahu cara mencegah dan mengatasi gejala flu yang umum terjadi.</p>
+                    <a href="https://www.detik.com/tag/pilek" target="_blank" class="text-blue-500 hover:text-blue-700">Baca Selengkapnya</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="footer bg-base-300 text-base-content p-10 mt-10 mb-0 relative">
+    <nav>
+      <h6 class="footer-title">Feature</h6>
+      <a href="{{ url_for('informasi_kesehatan')}}" class="link link-hover">Memberikan Informasi Kesehatan</a>
+      <a href="{{ url_for('berita')}}" class="link link-hover">Memberikan Berita Penyakit</a>
+    </nav>
+    <nav>
+        <h6 class="text-white">Copyright @ 2025 Denna Health</h6></nav>
+    <nav>
+      <h6 class="footer-title">Social</h6>
+      <div class="grid grid-flow-col gap-4">
+        <img src="https://img.freepik.com/premium-vector/whatsapp-icon-design_23-2147918673.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_authors_boost" alt="Logo ASEP Industries" width="50" height="50" class="h-10 w-10 rounded-full mr-3" />
+    <p class="font-bold">
+      </div>
+    </nav>
+  </footer>
+</body>
+</html>

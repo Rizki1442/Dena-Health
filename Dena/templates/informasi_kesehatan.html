@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- DaisyUI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS (Jika ada) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Informasi Kesehatan - Denna Health{% endblock %}</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar shadow-sm sticky top-0 left-0 right-0 z-50 bg-base-100">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li><a href="{{ url_for('berita') }}">Berita</a></li>
+            <li>
+                <details>
+                  <summary>Cek Gejala Kesehatan</summary>
+                  <ul class="p-2">
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#sesak">Sesak Nafas</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#maag">Maag</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#flu">Flu</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#diare">Diare</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#bibir">Bibir Pecah-Pecah </a></li>
+                  </ul>
+                </details>
+              </li>
+              <li><a href="{{ url_for('home') }}#about">Tentang Kami</a></li>
+            <li><a href="{{ url_for('home') }}">Hubungi Kami</a></li>    
+            </ul>
+          </div>
+          <a class="text-xl text-white">Denna Health</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a href="{{ url_for('berita') }}">Berita</a></li>
+            <li>
+                <details>
+                  <summary>Cek Gejala Kesehatan</summary>
+                  <ul class="p-2">
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#sesak">Sesak Nafas</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#maag">Maag</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#flu">Flu</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#diare">Diare</a></li>
+                    <li><a href="{{ url_for('informasi_kesehatan') }}#bibir">Bibir Pecah-Pecah </a></li>
+                  </ul>
+                </details>
+              </li>
+              <li><a href="{{ url_for('home') }}#about">Tentang Kami</a></li>
+            <li><a href="{{ url_for('home') }}#kontak">Hubungi Kami</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+            <a href="{{ url_for('home') }}">
+                <img src="/static/img/logo.png"
+                     alt="Link" class="h-9 w-9 rounded-full object-cover md:h-9 md:w-9 min-h-[36px] min-w-[36px] mr-3">
+            </a>
+        </div>
+      </div>
+
+    <!-- Hero -->
+    <div class="card w-full bg-white mt-10 px-4">
+        <h1 class="font-bold text-center text-black text-xl">INFORMASI KESEHATAN</h1>
+        <p class="text-center mb-5 text-grey text-sm italic">Untuk mengetahui gejala kesehatan lebih lanjut bisa lihat dibawah ini.</p>
+
+        <h1 class="font-bold text-start text-black text-xl px-4 mb-4" id="sesak">GEJALA SESAK NAFAS</h1>
+        <div class="flex flex-col md:flex-row items-center">
+            <figure class="w-full md:w-1/2">
+                <img src="https://img.freepik.com/free-photo/sick-woman-mask-having-difficulty-breathing-coronavirus-pandemic_53876-95273.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" 
+                     alt="Sesak Nafas" class="rounded-lg w-full h-auto"/>
+            </figure>
+            <div class="card-body w-full md:w-1/2 pl-0 md:pl-6 mt-4 md:mt-0">
+                <h2 class="card-title text-black font-bold">Sesak Nafas (Dispnea)</h2>
+                <p class="text-black italic">Sesak nafas adalah kondisi medis yang menyebabkan perasaan kesulitan atau ketidaknyamanan dalam bernafas. Gejala ini bisa disebabkan oleh berbagai penyakit, dan jika tidak ditangani dengan tepat, bisa berdampak serius.</p>
+            </div>
+        </div>
+
+    <div class="ml-10 mt-10 mr-10 mb-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <!-- Penyebab Umum -->
+            <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/free-photo/emotion-fashion-head-casual-upset_1127-2668.jpg?t=st=1739307849~exp=1739311449~hmac=da00a734d7e9e7891b64dcdffc15461e2ad66a2121ddac6c08d12a3a0f925022&w=740" alt="Penyebab" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+                <div class="card-body">
+                    <h2 class="card-title text-black">Penyebab Umum</h2>
+                    <p> Sesak nafas bisa terjadi akibat berbagai kondisi, seperti asma, PPOK (Penyakit Paru Obstruktif Kronik), gagal jantung, atau infeksi saluran pernapasan. Kondisi lain seperti serangan panik atau reaksi alergi juga dapat menyebabkan sesak nafas.</p>
+                </div>
+            </div>
+
+
+            <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/premium-photo/portrait-man-wear-protect-mask-white-backgroundwearing-face-mask-prevent-covid19-pandemic-coronavirusworker-with-medical-mask-against-stop-coronavirus_44277-15471.jpg?w=740" alt="Gejala Terkait" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+                <div class="card-body">
+                    <h2 class="card-title text-black">Gejala yang Terkait</h2>
+                    <p>Sesak nafas sering kali disertai dengan gejala seperti batuk, nyeri dada, atau kelelahan. Terkadang, sesak nafas juga dapat disertai dengan wheezing atau suara napas berbunyi.</p>
+                </div>
+            </div>
+
+
+            <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/free-photo/coronavirus-outbreak-leisure-quarantine-social-distancing-emotions-concept-woman-medical-mask-coughing-feeling-sick-touching-lungs-have-covid-19-symptoms-being-ill_1258-58085.jpg?t=st=1739307977~exp=1739311577~hmac=93f3f388a767b33567eda54ab0905df0f813612725f54712eda963c8f576a7c2&w=740" alt="Tindakan" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+                <div class="card-body">
+                    <h2 class="card-title text-black">Tindakan yang Disarankan</h2>
+                    <p>Jika sesak nafas terjadi secara tiba-tiba atau semakin memburuk, segera konsultasikan dengan tenaga medis. Pemeriksaan fungsi paru-paru dan pemeriksaan lainnya diperlukan untuk menentukan penyebab pasti dan langkah pengobatan yang tepat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        
+
+    
+        <h1 class="font-bold text-start text-black text-xl px-4 mb-4" id="maag">GEJALA MAAG</h1>
+         <div class="flex flex-col md:flex-row items-center">
+         <figure class="w-full md:w-1/2">
+        <img src="https://img.freepik.com/free-photo/woman-standing-with-stomach-ache-presses-her-hand-her-stomach_1150-25976.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" 
+             alt="0" 
+             class="rounded-lg w-full h-auto"/>
+    </figure>
+    <div class="card-body w-full md:w-1/2 pl-0 md:pl-6 mt-4 md:mt-0">
+        <h2 class="card-title text-black font-bold">Maag (Dispepsia)</h2>
+        <p class="text-black italic">Maag adalah istilah yang sering digunakan untuk menggambarkan rasa sakit atau ketidaknyamanan di area perut bagian atas yang disebabkan oleh masalah pencernaan.</p>
+        <div class="card-actions justify-between items-center mt-4">
+        </div>
+    </div>
+</div>
+
+<div class="ml-10 mt-10 mr-10 mb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    
+        <!-- 1 -->
+        <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/free-photo/man-holding-hands-belly-grimacing-from-pain-complaining-stomach-ache-standing-against-blue-background_1258-64967.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="1" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            <div class="card-body">
+                <h2 class="card-title text-black">Penyebab Umum</h2>
+                <p> Maag bisa terjadi karena gastritis, tukak lambung, atau infeksi bakteri seperti Helicobacter pylori. Faktor lain seperti stres, konsumsi makanan pedas atau berlemak, serta kebiasaan merokok juga dapat memperburuk kondisi ini.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                </div>
+            </div>
+        </div>
+    
+        <!-- 2-->
+        <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/premium-photo/woman-having-her-period-holding-her-stomach-pain_8595-29392.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="2" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            <div class="card-body">
+                <h2 class="card-title text-black">Gejala yang Terkait</h2>
+                <p> Maag ditandai dengan rasa terbakar di perut, mual, kembung, atau bahkan muntah. Gejala ini sering kali timbul setelah makan atau saat perut kosong.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                </div>
+            </div>
+        </div>
+    
+        <!-- 3-->
+        <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/premium-photo/woman-has-stomach-ache-isolated-yellow-wall_105092-246.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="3" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            <div class="card-body">
+                <h2 class="card-title text-black">Tindakan yang Disarankan</h2>
+                <p>Menghindari makanan pedas atau berlemak, makan dengan porsi kecil lebih sering, dan mengelola stres dapat membantu mengurangi gejala. Jika maag berlanjut atau menyebabkan rasa sakit yang intens, segera periksakan diri ke dokter untuk pengobatan lebih lanjut.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <h1 class="font-bold text-start text-black text-xl px-4 mb-4" id="flu">GEJALA FLU</h1>
+<div class="flex flex-col md:flex-row items-center">
+    <figure class="w-full md:w-1/2">
+        <img src="https://img.freepik.com/free-photo/young-asian-man-sitting-couch-home-blowing-nose-with-tissue_1098-20142.jpg?t=st=1739309096~exp=1739312696~hmac=5fb3fce63df88152b03efdbbd5d4d483272457428599bb9c4655375c00d99952&w=740" 
+             alt="0" 
+             class="rounded-lg w-full h-auto"/>
+    </figure>
+    <div class="card-body w-full md:w-1/2 pl-0 md:pl-6 mt-4 md:mt-0">
+        <h2 class="card-title text-black font-bold">Flu (Influenza)
+        </h2>
+        <p class="text-black italic">Flu adalah infeksi virus yang menyerang saluran pernapasan dan bisa menular dengan sangat cepat. Flu sering kali disalahartikan sebagai pilek biasa, namun gejalanya jauh lebih berat.</p>
+        <div class="card-actions justify-between items-center mt-4">
+        </div>
+    </div>
+</div>
+
+<div class="ml-10 mt-10 mr-10 mb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    
+        <!-- 1 -->
+        <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/free-photo/bored-sick-woman-holding-hand-head-blowing-nose-with-napkin_1262-18377.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="1" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            <div class="card-body">
+                <h2 class="card-title text-black">Penyebab Umum</h2>
+                <p> Flu disebabkan oleh infeksi virus influenza. Virus ini menyebar melalui udara melalui percikan dari batuk atau bersin, serta kontak langsung dengan orang yang terinfeksi.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                </div>
+            </div>
+        </div>
+    
+        <!-- 2-->
+        <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/premium-photo/asian-girl-blowing-nose-by-tissue-health-care-sick-concept_34435-1458.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="2" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            <div class="card-body">
+                <h2 class="card-title text-black">Gejala yang Terkait</h2>
+                <p>Gejala flu termasuk demam tinggi, batuk, nyeri otot, kelelahan ekstrem, sakit tenggorokan, dan hidung tersumbat. Beberapa orang juga mengalami mual atau diare, terutama pada anak-anak.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                </div>
+            </div>
+        </div>
+    
+        <!-- 3-->
+        <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/free-photo/tender-lady-dreams-bed-after-hard-work-day_231208-3059.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="3" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            <div class="card-body">
+                <h2 class="card-title text-black">Tindakan yang Disarankan</h2>
+                <p>Istirahat yang cukup, banyak mengonsumsi cairan, dan menjaga kebersihan tangan dapat membantu meringankan gejala flu. Vaksinasi flu tahunan juga sangat disarankan untuk mencegah infeksi, terutama bagi kelompok rentan.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <h1 class="font-bold text-start text-black text-xl px-4 mb-4" id="diare">GEJALA DIARE</h1>
+    <div class="flex flex-col md:flex-row items-center">
+        <figure class="w-full md:w-1/2">
+            <img src="https://img.freepik.com/free-photo/woman-holding-hand-near-toilet-bowl-health-problem-concept_1150-6442.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" 
+                 alt="0" 
+                 class="rounded-lg w-full h-auto"/>
+        </figure>
+        <div class="card-body w-full md:w-1/2 pl-0 md:pl-6 mt-4 md:mt-0">
+            <h2 class="card-title text-black font-bold">Diare</h2>
+            <p class="text-black italic">Diare adalah kondisi di mana seseorang mengalami peningkatan frekuensi buang air besar dengan konsistensi tinja yang lebih cair atau lebih lunak dari biasanya.</p>
+            <div class="card-actions justify-between items-center mt-4">
+            </div>
+        </div>
+    </div>
+
+    <div class="ml-10 mt-10 mr-10 mb-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+            <!-- 1 -->
+            <div class="card w-full bg-white">
+                    <img src="https://img.freepik.com/free-photo/sick-glasses-male-adult-feel-stomachache-hand-hold-belly-body-with-stressful-tension-white-background-healthy-life-ideas-concept_609648-662.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="1" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+                <div class="card-body">
+                    <h2 class="card-title text-black">Penyebab Umum</h2>
+                    <p> Diare bisa disebabkan oleh infeksi virus, bakteri, atau parasit. Penyebab lainnya bisa meliputi konsumsi makanan yang terkontaminasi, stres, atau gangguan pencernaan seperti IBS (Irritable Bowel Syndrome).</p>
+                    <div class="card-actions justify-between items-center mt-4">
+                    </div>
+                </div>
+            </div>
+        
+            <!-- 2-->
+            <div class="card w-full bg-white">
+                    <img src="https://img.freepik.com/premium-photo/young-man-holding-his-stomach-tissue-paper-suffering-from-diarrhea-incontinence-prostatitis-venereal-disease-healthcare-concept_59017-583.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="2" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+                <div class="card-body">
+                    <h2 class="card-title text-black">Gejala yang Terkait</h2>
+                    <p> Diare ditandai dengan tinja yang lebih cair dari normal, sering buang air besar, dan kadang disertai dengan perut kembung, mual, atau demam.</p>
+                    <div class="card-actions justify-between items-center mt-4">
+                    </div>
+                </div>
+            </div>
+        
+            <!-- 3-->
+            <div class="card w-full bg-white">
+                    <img src="https://img.freepik.com/free-photo/beautiful-female-half-length-portrait-isolated-yellow_155003-20876.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="3" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+                <div class="card-body">
+                    <h2 class="card-title text-black">Tindakan yang Disarankan</h2>
+                    <p>Pastikan untuk tetap terhidrasi dengan banyak minum air, menghindari makanan pedas atau berlemak, dan mengonsumsi makanan ringan. Jika diare berlangsung lebih dari dua hari atau disertai dengan darah, segera hubungi dokter.</p>
+                    <div class="card-actions justify-between items-center mt-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="font-bold text-start text-black text-xl px-4 mb-4" id="bibir">GEJALA BIBIR PECAH-PECAH</h1>
+<div class="flex flex-col md:flex-row items-center">
+    <figure class="w-full md:w-1/2">
+        <img src="https://img.freepik.com/premium-photo/close-up-girl-lips-affected-by-herpes-treatment-herpes-infection-virus_80942-4985.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" 
+             alt="0" 
+             class="rounded-lg w-full h-auto"/>
+    </figure>
+    <div class="card-body w-full md:w-1/2 pl-0 md:pl-6 mt-4 md:mt-0">
+        <h2 class="card-title text-black font-bold">Bibir Pecah-Pecah</h2>
+        <p class="text-black italic">Bibir pecah-pecah adalah kondisi yang menyebabkan kulit bibir kering, retak, atau berdarah. Kondisi ini sering kali muncul akibat dehidrasi atau paparan cuaca ekstrem.</p>
+        <div class="card-actions justify-between items-center mt-4">
+        </div>
+    </div>
+</div>
+
+<div class="ml-10 mt-10 mr-10 mb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    
+        <!-- 1 -->
+        <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/premium-photo/herpes-lip-close-up-macro_222251-644.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="1" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            <div class="card-body">
+                <h2 class="card-title text-black">Penyebab Umum</h2>
+                <p> Bibir pecah-pecah sering disebabkan oleh dehidrasi, kekurangan vitamin B atau zinc, serta paparan angin atau sinar matahari yang berlebihan. Kondisi medis lain seperti alergi atau dermatitis juga dapat berkontribusi.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                </div>
+            </div>
+        </div>
+    
+        <!-- 2-->
+        <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/free-photo/person-preparing-their-drag-outfit_23-2149490894.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="2" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            <div class="card-body">
+                <h2 class="card-title text-black">Gejala yang Terkait</h2>
+                <p>Bibir yang kering, mengelupas, atau bahkan berdarah. Gejala ini seringkali disertai dengan rasa sakit atau ketidaknyamanan saat berbicara atau makan.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                </div>
+            </div>
+        </div>
+    
+        <!-- 3-->
+        <div class="card w-full bg-white">
+                <img src="https://img.freepik.com/premium-photo/closeup-chapped-lips-with-corner-irritation-detailed-closeup-young-persons-chapped-lips-with_1314537-672.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_hybrid" alt="3" class="rounded-t-lg h-60 w-full object-cover rounded-lg shadow-lg"/>
+            <div class="card-body">
+                <h2 class="card-title text-black">Tindakan yang Disarankan</h2>
+                <p>Gunakan pelembap bibir secara teratur dan pastikan untuk tetap terhidrasi dengan cukup minum air. Menghindari makanan atau bahan yang dapat menyebabkan iritasi, seperti makanan pedas, juga bisa membantu. Jika kondisi ini berlanjut, konsultasikan dengan dokter untuk pengobatan lebih lanjut.</p>
+                <div class="card-actions justify-between items-center mt-4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+
+<!-- Link ke file JavaScript -->
+<script src="../static/script.js"></script>
+
+<footer class="footer bg-base-300 text-base-content p-10 mt-10 mb-0 relative">
+    <nav>
+      <h6 class="footer-title">Feature</h6>
+      <a href="{{ url_for('informasi_kesehatan')}}" class="link link-hover">Memberikan Informasi Kesehatan</a>
+      <a href="{{ url_for('berita')}}" class="link link-hover">Memberikan Berita Penyakit</a>
+    </nav>
+    <nav>
+        <h6 class="text-white">Copyright @ 2025 Denna Health</h6></nav>
+    <nav>
+      <h6 class="footer-title">Social</h6>
+      <div class="grid grid-flow-col gap-4">
+        <img src="https://img.freepik.com/premium-vector/whatsapp-icon-design_23-2147918673.jpg?ga=GA1.1.1059427025.1739276514&semt=ais_authors_boost" alt="Logo ASEP Industries" width="50" height="50" class="h-10 w-10 rounded-full mr-3" />
+    <p class="font-bold">
+      </div>
+    </nav>
+  </footer>
+</body>
+</html>
+
