@@ -14,6 +14,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Informasi Kesehatan - Denna Health{% endblock %}</title>
+    <link rel="icon" href="../static/img/logo.png" type="image/x-icon">
 </head>
 <body>
     <!-- Navbar -->
@@ -40,7 +41,8 @@
                 </details>
               </li>
               <li><a href="{{ url_for('home') }}#about">Tentang Kami</a></li>
-            <li><a href="{{ url_for('home') }}">Hubungi Kami</a></li>    
+            <li><a href="{{ url_for('home') }}">Hubungi Kami</a></li>  
+            <li><a href="{{ url_for('erd') }}">ERD</a></li>   
             </ul>
           </div>
           <a class="text-xl text-white">Denna Health</a>
@@ -62,6 +64,7 @@
               </li>
               <li><a href="{{ url_for('home') }}#about">Tentang Kami</a></li>
             <li><a href="{{ url_for('home') }}#kontak">Hubungi Kami</a></li>
+            <li><a href="{{ url_for('erd') }}">ERD</a></li> 
           </ul>
         </div>
         <div class="navbar-end">
