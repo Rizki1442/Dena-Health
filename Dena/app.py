@@ -14,5 +14,9 @@ def informasi_kesehatan():
 def berita():
     return render_template('berita.html')
 
+@app.route('/erd')
+def erd():
+    return render_template('erd.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
